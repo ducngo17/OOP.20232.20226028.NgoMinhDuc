@@ -1,4 +1,4 @@
-package ooplab;
+
 
 import javax.swing.JOptionPane;
 public class ShowTwoNumbers {

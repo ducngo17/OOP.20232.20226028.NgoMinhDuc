@@ -1,4 +1,4 @@
-package ooplab;
+
 
 //ax + b = 0
 

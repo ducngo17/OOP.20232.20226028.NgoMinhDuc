@@ -1,5 +1,4 @@
-package ooplab;
-//ax^2 + bx + c = 0
+
 
 import javax.swing.JOptionPane;
 import java.lang.Math; 
