@@ -50,4 +50,46 @@ public class Cart {
         }
         return cost;
     }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+        int listLength = dvdList.length;
+        int j = 0;
+        if (qtyOrdered == 20) System.out.println("The cart is full");
+        else if (qtyOrdered + listLength > 20) System.out.println("You can only buy at most 20 DVDs at a time");
+        else {
+            for (int i = 0; i < itemsOrdered.length; i++) {
+                if (itemsOrdered[i] == null) {
+                    itemsOrdered[i] = dvdList[j++];
+                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
+                }
+                if (j == listLength) break;
+            }
+            qtyOrdered += listLength;
+            System.out.println("The DVD list has been added");
+        }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+        if (qtyOrdered == 20) System.out.println("The cart is full");
+        else if (qtyOrdered + 3 > 20) System.out.println("You can only buy at most 20 DVDs at a time");
+        else {
+            for (int i = 0; i < itemsOrdered.length; i++) {
+                if (itemsOrdered[i] == null) {
+                    itemsOrdered[i] = dvd1;
+                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
+                    break;
+                }
+            }
+            for (int i = 0; i < itemsOrdered.length; i++) {
+                if (itemsOrdered[i] == null) {
+                    itemsOrdered[i] = dvd2;
+                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
+                    break;
+                }
+            }
+
+            qtyOrdered += 2;
+            System.out.println("The DVDs have been added");
+        }
+    }
 }
