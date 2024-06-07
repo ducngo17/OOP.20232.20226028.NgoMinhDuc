@@ -29,6 +29,11 @@ public class DigitalVideoDisc {
         return cost;
     }
 
+    //15
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
 
     //10
     public DigitalVideoDisc(String title) {
