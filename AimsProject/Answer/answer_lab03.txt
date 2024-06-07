@@ -1,0 +1,36 @@
+4. Write a toString() method for the DigitalVideoDisc class. What should be the 
+return type of this method? 
+    toString() method of the DigitalVideoDisc class is used to store the object of this class as a string.
+Therefore, the return type of this method should be String.
+
+14. Which classes are aggregates of other classes
+    CompactDisc class aggregates Track class
+
+15. If the passing object is not an instance of Media, what happens? 
+    It will cause error.
+    If the passing object is an instance of DVD, Book, or CD --> JVM automatically upcast to Media
+    Otherwise, JVM cannot cast.
+    
+17.
+- What class should implement the Comparable interface? 
+    Media class
+- In those classes, how should you implement the compareTo()method to reflect the ordering that 
+we want? 
+    //order by title then cost
+    public int compareTo(Media a) {
+        if (this.getTitle().compareTo(a.getTitle()) != 0)
+            return this.getTitle().compareTo(a.getTitle());
+        else 
+            return (int)(this.getCost - a.Cost);
+    }
+-  Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this 
+Comparable interface approach? 
+    No, since we can only override compareTo() method once in the Media class
+    --> 1 order
+-  Suppose the DVDs have a different ordering rule from the other media types, that is by title, then 
+decreasing length, then cost. How would you modify your code to allow this?
+    I have 2 suggestions in this case
+    + override compareTo() method in the DigitalVideoDisc class reflecting the order needed.
+    + come back using Comparator interface
+
+
