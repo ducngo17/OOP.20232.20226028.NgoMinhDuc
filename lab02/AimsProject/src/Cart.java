@@ -1,8 +1,10 @@
 
 public class Cart {
     //11
-    private int qtyOrdered = 0;
+    private int qtyOrdered = 0; 
     public static final int MAX_NUMBERS_ORDERED = 20;
+
+    //an array to store list of dvds
     private DigitalVideoDisc[] itemsOrdered =
             new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
             //DigitalVideoDisc itemsOrdered[] is also acceptable 
@@ -10,13 +12,14 @@ public class Cart {
     public DigitalVideoDisc[] getItemsOrdered() {
         return itemsOrdered;
     }
+    
+    //method to add an item to the list
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (qtyOrdered == 20) System.out.println("The cart is full");
         else {
             for (int i = 0; i < itemsOrdered.length; i++) {
                 if (itemsOrdered[i] == null) {
                     itemsOrdered[i] = disc;
-                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
                     break;
                 }
             }
@@ -25,6 +28,7 @@ public class Cart {
         }
     }
 
+    //method to remove an item from the list
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         if (qtyOrdered == 0) System.out.println("The cart is empty");
         else {
@@ -43,6 +47,7 @@ public class Cart {
         }
     }
 
+    //method to return the total cost
     public float totalCost() {
         float cost = 0;
         for (int i = 0; i < itemsOrdered.length; i++) {
@@ -51,6 +56,7 @@ public class Cart {
         return cost;
     }
     
+    //14 overloading method -- array parameter
     public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
         int listLength = dvdList.length;
         int j = 0;
@@ -60,7 +66,6 @@ public class Cart {
             for (int i = 0; i < itemsOrdered.length; i++) {
                 if (itemsOrdered[i] == null) {
                     itemsOrdered[i] = dvdList[j++];
-                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
                 }
                 if (j == listLength) break;
             }
@@ -69,7 +74,8 @@ public class Cart {
         }
     }
     
-    /*
+    
+    /* varargs parameter -- cannot overload array and varargs
     public void addDigitalVideoDisc(DigitalVideoDisc ... dvdList) {
         int listLength = dvdList.length;
         int j = 0;
@@ -79,7 +85,6 @@ public class Cart {
             for (int i = 0; i < itemsOrdered.length; i++) {
                 if (itemsOrdered[i] == null) {
                     itemsOrdered[i] = dvdList[j++];
-                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
                 }
                 if (j == listLength) break;
             }
@@ -89,6 +94,7 @@ public class Cart {
     }
     */
 
+    //overloading -- differing the number of parameters
     public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
         if (qtyOrdered == 20) System.out.println("The cart is full");
         else if (qtyOrdered + 3 > 20) System.out.println("You can only buy at most 20 DVDs at a time");
@@ -96,14 +102,12 @@ public class Cart {
             for (int i = 0; i < itemsOrdered.length; i++) {
                 if (itemsOrdered[i] == null) {
                     itemsOrdered[i] = dvd1;
-                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
                     break;
                 }
             }
             for (int i = 0; i < itemsOrdered.length; i++) {
                 if (itemsOrdered[i] == null) {
                     itemsOrdered[i] = dvd2;
-                    //System.out.println((i+1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost());
                     break;
                 }
             }

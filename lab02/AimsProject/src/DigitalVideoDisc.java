@@ -48,7 +48,7 @@ public class DigitalVideoDisc {
         return id;
     }
 
-    //10
+    //10 constructor 
     public DigitalVideoDisc(String title) {
         this.title = title;
         nbDigitalVideoDiscs += 1;
