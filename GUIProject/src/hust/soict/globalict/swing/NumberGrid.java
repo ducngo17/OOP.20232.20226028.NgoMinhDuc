@@ -1,4 +1,5 @@
 package hust.soict.globalict.swing;
+
 import java.awt.BorderLayout;
 import java.awt.ComponentOrientation;
 import java.awt.Container;
