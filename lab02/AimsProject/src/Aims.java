@@ -13,11 +13,14 @@ public class Aims {
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
         anOrder.addDigitalVideoDisc(dvd3);
 
-        //14
+        //14 add dvdlist
         //DigitalVideoDisc dvdList[] = {dvd1, dvd2, dvd3};
         //anOrder.addDigitalVideoDisc(dvdList);
 
+        //add 2 dvds
         //anOrder.addDigitalVideoDisc(dvd1, dvd2);
+
+        //print dvds ordered
         DigitalVideoDisc[] items = anOrder.getItemsOrdered();
         for (int i = 0; i < items.length; i++) {
             if (items[i] != null) {
@@ -26,11 +29,14 @@ public class Aims {
             }
         }
 
+        //print total cost
         System.out.println("The total cost is: ");
         System.out.println(anOrder.totalCost());
 
+        //remove a dvd
         anOrder.removeDigitalVideoDisc(dvd2);
 
+        //print list of dvds after removing
         for (int i = 0; i < items.length; i++) {
             if (items[i] != null) {
                 System.out.format("%-5d%-30s%.3f",(i+1), items[i].getTitle(), items[i].getCost());
