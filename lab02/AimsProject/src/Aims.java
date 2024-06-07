@@ -13,6 +13,11 @@ public class Aims {
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
         anOrder.addDigitalVideoDisc(dvd3);
 
+        //14
+        //DigitalVideoDisc dvdList[] = {dvd1, dvd2, dvd3};
+        //anOrder.addDigitalVideoDisc(dvdList);
+
+        //anOrder.addDigitalVideoDisc(dvd1, dvd2);
         DigitalVideoDisc[] items = anOrder.getItemsOrdered();
         for (int i = 0; i < items.length; i++) {
             if (items[i] != null) {
