@@ -1,4 +1,5 @@
 package hust.soict.globalict.swing;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
