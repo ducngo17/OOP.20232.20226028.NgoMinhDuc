@@ -8,7 +8,7 @@ public class Cart {
     //an array to store list of dvds
     private DigitalVideoDisc[] itemsOrdered =
             new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-            //DigitalVideoDisc itemsOrdered[] is also acceptable 
+            //DigitalVideoDisc itemsOrdered[] is also acceptable  
 
     public DigitalVideoDisc[] getItemsOrdered() {
         return itemsOrdered;
@@ -116,5 +116,45 @@ public class Cart {
             qtyOrdered += 2;
             System.out.println("The DVDs have been added");
         }
+    }
+
+    //method to print list of ordered dvds
+    public void print(DigitalVideoDisc[] items) {
+        double sum = 0;
+        System.out.println("******************************************CART*************************************");
+        System.out.println("Ordered Items: ");
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] != null) {
+                System.out.format("%-2d - %-20s - %-20s - %-20s - %-3d : %.3f$ \n",
+                    (i+1), items[i].getTitle(), items[i].getCategory(), items[i].getDirector(), items[i].getLength(), items[i].getCost());
+                sum += items[i].getCost();
+            }
+        }
+        System.out.println("Total cost: " + sum);
+        System.out.println("***********************************************************************************");
+    }
+
+    //method to search dvd by id
+    public void isMatch(DigitalVideoDisc[] items, int id) {
+        for (int i = 0; i < items.length; i++) {
+            if (i + 1 == id && items[i] != null) {
+                System.out.format("%-2d - %-20s - %-20s - %-20s - %-3d : %.3f$ \n",
+                    (i+1), items[i].getTitle(), items[i].getCategory(), items[i].getDirector(), items[i].getLength(), items[i].getCost());
+                return;
+            }
+        }
+        System.out.println("No matching disk is found");
+    }
+
+    //method to search dvd by title
+    public void isMatch(DigitalVideoDisc[] items, String title) {
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].getTitle().equals(title) && items[i] != null) {
+                System.out.format("%-2d - %-20s - %-20s - %-20s - %-3d : %.3f$ \n",
+                    (i+1), items[i].getTitle(), items[i].getCategory(), items[i].getDirector(), items[i].getLength(), items[i].getCost());
+                return;
+            }
+        }
+        System.out.println("No matching disk is found");
     }
 }
