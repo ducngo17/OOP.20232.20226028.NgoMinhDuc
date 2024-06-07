@@ -54,6 +54,10 @@ public class Store {
       }
   }
 
+  public ArrayList<Media> getItemsInStore() {
+      return itemsInStore;
+  }
+  
   //search media by title
   public Media search(String title) {
       for (Media i : this.itemsInStore) {
