@@ -1,27 +1,39 @@
 package hust.soict.globalict.aims.cart;
 //ex12
 
-import java.util.ArrayList;
+import java.util.*;
+import javax.naming.LimitExceededException;
 import java.util.Collections;
 import hust.soict.globalict.aims.media.*;
 
 public class Cart {
   //array list to store items ordered
-  private ArrayList<Media> itemsOrdered = new ArrayList<Media>(); 
-
+  private List<Media> itemsOrdered = new ArrayList<Media>(); 
+  private static final int MAX_NUMBER_ORDERED = 100;
+  
   //return the number of media in cart
   public int getNumberMediaInCart() {
       return itemsOrdered.size();
   }
+  
+  public ArrayList<Media> getItemsOrdered(){
+		return (ArrayList) itemsOrdered;
+	}
 
   //add a media to the cart
-  public void addMedia(Media inputMedia) {
-      if (itemsOrdered.contains(inputMedia)) {
-          System.out.println("The media is already ordered");
+  //ex9 lab5 exception
+  public void addMedia(Media inputMedia) throws LimitExceededException{
+      if (this.getNumberMediaInCart() < MAX_NUMBER_ORDERED) {
+    	  if (itemsOrdered.contains(inputMedia)) {
+              System.out.println("The media is already ordered");
+          }
+          else {
+              itemsOrdered.add(inputMedia);
+              System.out.println("Add media successfully");
+          }
       }
       else {
-          itemsOrdered.add(inputMedia);
-          System.out.println("Add media successfully");
+			throw new LimitExceededException("ERROR: The number of" + "media has reached its limit");
       }
   }
 
@@ -87,7 +99,7 @@ public class Cart {
 
   //search media by title
   public Media searchByTitle(String title) {
-      for (Media i : this.itemsOrdered) {
+      for (Media i : itemsOrdered) {
           if (i.getTitle().equals(title) && i != null) {
               return i;
           }
@@ -97,12 +109,16 @@ public class Cart {
 
   //search media by id
   public Media searchByID(int id) {
-      for (Media i : this.itemsOrdered) {
+      for (Media i : itemsOrdered) {
           if (i.getId() == id && i != null) {
               return i;
           }
       }
       return null;
   }
+  
+  public void clearCart() {
+		itemsOrdered.clear();
+	}
 
 }

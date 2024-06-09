@@ -37,5 +37,12 @@ public class Book extends Media {
             System.out.println("Remove authors successfully");
         }
     }
+    
+    public boolean isMatch(String title) {
+		if(this.getTitle().toLowerCase().contains(title.toLowerCase())) {
+			return true;
+		}
+		return false;
+	}
 
 }

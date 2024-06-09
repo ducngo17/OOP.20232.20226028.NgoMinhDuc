@@ -1,5 +1,7 @@
 package hust.soict.globalict.aims.media;
-import java.util.ArrayList;
+import hust.soict.globalict.aims.exception.PlayerException;
+import javax.swing.JOptionPane;
+import java.util.*;
 
 public class CompactDisc extends Disc implements Playable{
     //attribute
@@ -71,12 +73,47 @@ public class CompactDisc extends Disc implements Playable{
         this.length = length;
     }
 
+    //lab05 ex10.4
     @Override
-    public void play() {
-        for (int i = 0; i < tracks.size(); i++) {
-            System.out.println("Track" + (i+1));
-            (tracks.get(i)).play();
-            System.out.println();
-        }
-    }
+    public String play() throws PlayerException{
+		if(this.getLength() > 0) {
+			String output =  "Playing CD: " + this.getTitle() + "\n" + 
+                    "CD length: " + this.getLength() + "\n";
+						
+			java.util.Iterator iter = tracks.iterator();
+			
+			Track nextTrack;
+			
+			while(iter.hasNext()) {
+				nextTrack = (Track) iter.next();
+				try {
+					nextTrack.play();
+				} catch(PlayerException e) {
+					throw e;
+				}
+			}
+			
+			for (Track track : tracks) {
+                try {
+                    output += track.play() + "\n";
+                } catch (PlayerException e) {
+                    output += track.getTitle() + "\n" + e.getMessage();
+                }
+            }
+			output += "\nCD finished playing";
+			return output;
+		}
+		else {
+			throw new PlayerException("ERROR: DVD Length is non-positive");
+		}
+		
+		
+	}
+    
+    public boolean isMatch(String title) {
+		if(this.getTitle().toLowerCase().contains(title.toLowerCase())) {
+			return true;
+		}
+		return false;
+	}
 }

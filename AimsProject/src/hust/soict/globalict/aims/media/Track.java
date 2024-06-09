@@ -1,5 +1,7 @@
 package hust.soict.globalict.aims.media;
 
+import hust.soict.globalict.aims.exception.PlayerException;
+
 public class Track implements Playable {
     private String title;
     private int length;
@@ -19,10 +21,17 @@ public class Track implements Playable {
         this.title = title;
         this.length = length;
     }
-
-    public void play() { 
-        System.out.println("Playing track: " + this.getTitle()); 
-        System.out.println("Track length: " + this.getLength()); 
+    
+    //lab05 ex10.3
+    public String play() throws PlayerException { 
+    	if (this.getLength() > 0) {
+    		String output = "Playing track: " + this.getTitle() 
+    			+ "\nTrack length: " + this.getLength();
+			return output;
+    	}
+    	else {
+			throw new PlayerException("ERROR: Track length is non-positive");
+		}
     }
 
     //ex15

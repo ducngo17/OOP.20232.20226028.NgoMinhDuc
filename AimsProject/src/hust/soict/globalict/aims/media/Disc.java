@@ -31,4 +31,8 @@ public class Disc extends Media {
     public Disc (int id, String title, String category, float cost) {
         super(id, title, category, cost);
     }
+    
+    public boolean isMatch(String title) {
+		return true;
+	}
 }
