@@ -133,7 +133,7 @@ public class CartController {
     
     @FXML
     void placeOrderPressed(ActionEvent event) {
-    	cart.clearCart();
+    	cart.empty();
     	JOptionPane.showMessageDialog(null, "Place order successfully. Please refresh the page.");
     }
     

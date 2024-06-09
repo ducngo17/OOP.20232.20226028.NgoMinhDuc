@@ -116,9 +116,5 @@ public class Cart {
       }
       return null;
   }
-  
-  public void clearCart() {
-		itemsOrdered.clear();
-	}
 
 }
