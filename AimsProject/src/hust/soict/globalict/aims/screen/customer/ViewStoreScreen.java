@@ -1,10 +1,7 @@
 package hust.soict.globalict.aims.screen.customer;
 
 import hust.soict.globalict.aims.cart.Cart;
-import hust.soict.globalict.aims.media.Book;
-import hust.soict.globalict.aims.media.CompactDisc;
-import hust.soict.globalict.aims.media.DigitalVideoDisc;
-import hust.soict.globalict.aims.media.Track;
+import hust.soict.globalict.aims.media.*;
 import hust.soict.globalict.aims.screen.customer.controller.ViewStoreController;
 import hust.soict.globalict.aims.store.Store;
 import javafx.application.Application;
